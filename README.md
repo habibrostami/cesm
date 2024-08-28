@@ -45,9 +45,7 @@ project_root/
    - Execute `main.py` to start the training process.
 
 # Model Configuration
-
-### Configure the Model in `splits.py` ###:
-   - Open the `splits.py` file to configure the models you wish to run. Here s an example configuration:
+   - To configure the model in `splits.py`, open the `splits.py` file to configure the models you wish to run. Here s an example configuration:
      ```
      {
          'name': 'kfold-Auto_AOL[cm_cc]',
