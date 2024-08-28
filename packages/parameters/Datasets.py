@@ -19,7 +19,7 @@ dm_cc = {
     'test': OneImage('./test_data.csv', 'dm', 'cc', transform, device)
 }
 dm_mlo = {
-    'train': OneImage('./train_augment.csv', 'dm', 'mlo', transform, device),
+    'train': OneImage('./train_data.csv', 'dm', 'mlo', transform, device),
     'validation': OneImage('./validation_data.csv', 'dm', 'mlo', transform, device),
     'test': OneImage('./test_data.csv', 'dm', 'mlo', transform, device)
 }

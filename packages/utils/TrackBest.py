@@ -1,6 +1,5 @@
 import os
 
-
 class TrackBest:
     def __init__(self, init_value, check_fn, save_path):
         self.check_fn = check_fn

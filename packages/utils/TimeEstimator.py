@@ -14,6 +14,8 @@ class TimeEstimator:
         self.remaining_sub_steps = self.sub_steps
 
     def get_time(self):
+        if self.estimated_step is None:
+            return None  # or any default value that makes sense
         last_step_time = (self.estimated_step / self.sub_steps) * self.remaining_sub_steps
         return self.estimated_step * (self.remaining_steps - 1) + last_step_time
 

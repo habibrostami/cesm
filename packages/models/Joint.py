@@ -97,6 +97,21 @@ class JointModel(nn.Module):
 
     def load_all(self, path):
         self.load_state_dict(torch.load(path))
+        # checkpoint = torch.load(path)
+        #
+        # model_dict = self.state_dict()
+        #
+        # # Filter out unnecessary keys
+        # filtered_checkpoint = {k: v for k, v in checkpoint.items() if
+        #                        k in model_dict and model_dict[k].size() == v.size()}
+        #
+        # # Overwrite entries in the existing state dict
+        # model_dict.update(filtered_checkpoint)
+        #
+        # # Load the new state dict
+        # self.load_state_dict(model_dict)
+        #
+        # print("Model loaded with partial state dict, missing or mismatched keys are ignored.")
 
     def freeze(self):
         for param in self.parameters():

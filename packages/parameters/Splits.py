@@ -44,7 +44,7 @@ splits = (
         'name': 'joint-pre-segment-ensemble',
         'dataset': full_pre_segment,
         'epochs': 50,
-        'train': True,
+        'train': False,
         'type': 'joint-pre-segment-ensemble',
         'batch_size': 64,
         'cm_cc_path': './save:manual:joint-unet-pre-segment-cm-cc[b64]/best_val/accuracy/whole.pth',
@@ -55,7 +55,7 @@ splits = (
     {
         'name': 'joint-unet-cm-cc',
         'dataset': cm_cc,
-        'epochs': 50,
+        'epochs': 10,
         'train': False,
         'type': 'joint-unet',
         'batch_size': 8,
@@ -489,5 +489,297 @@ splits = (
         'cm_mlo_path': './save:manual:AOL-AutoUnet[cm_mlo]:18/best_train/accuracy/whole.pth',
         'dm_cc_path': './save:manual:AOL-AutoUnet[dm_cc]:18/best_train/accuracy/whole.pth',
         'dm_mlo_path': './save:manual:AOL-AutoUnet[dm_mlo]:18/best_train/accuracy/whole.pth'
+    },
+    {
+        'name': 'kfold-2attentionmask[cm_cc]',
+        'dataset': cm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-2attentionmask[cm_mlo]',
+        'dataset': cm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-2attentionmask[dm_cc]',
+        'dataset': dm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-2attentionmask[dm_mlo]',
+        'dataset': dm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'Kfold-Semiauto-AOL-Ensemble',
+        'dataset': full,
+        'epochs': 15,
+        'train': False,
+        'type': 'kfold-joint-unet-ensemble',
+        'batch_size': 128,
+        'cm_cc_path': './save:KFold:kfold-2attentionmask[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:kfold-2attentionmask[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:kfold-2attentionmask[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:kfold-2attentionmask[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
+    },
+    {
+        'name': 'kfold-Auto_AOL[cm_cc]',
+        'dataset': cm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_AOL[cm_mlo]',
+        'dataset': cm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_AOL[dm_cc]',
+        'dataset': dm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_AOL[dm_mlo]',
+        'dataset': dm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'Kfold-Auto_AOL-Ensemble',
+        'dataset': full,
+        'epochs': 15,
+        'train': False,
+        'type': 'kfold-joint-unet-ensemble',
+        'batch_size': 64,
+        'cm_cc_path': './save:KFold:kfold-Auto_AOL[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:kfold-Auto_AOL[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:kfold-Auto_AOL[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:kfold-Auto_AOL[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
+    },
+    {
+        'name': 'kfold-SemiAuto_ROI[cm_cc]',
+        'dataset': cm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-SemiAuto_ROI[cm_mlo]',
+        'dataset': cm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-SemiAuto_ROI[dm_cc]',
+        'dataset': dm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-SemiAuto_ROI[dm_mlo]',
+        'dataset': dm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'Kfold-SemiAuto_ROI-Ensemble',
+        'dataset': full,
+        'epochs': 15,
+        'train': False,
+        'type': 'kfold-joint-unet-ensemble',
+        'batch_size': 64,
+        'cm_cc_path': './save:KFold:kfold-SemiAuto_ROI[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:kfold-SemiAuto_ROI[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:kfold-SemiAuto_ROI[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:kfold-SemiAuto_ROI[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
+    },
+    {
+        'name': 'kfold-Auto_ROI[cm_cc]',
+        'dataset': cm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_ROI[cm_mlo]',
+        'dataset': cm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_ROI[dm_cc]',
+        'dataset': dm_cc,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'kfold-Auto_ROI[dm_mlo]',
+        'dataset': dm_mlo,
+        'epochs': 15,
+        'resnet_size': 18,
+        'train': False,
+        'type': 'kfold-simple-run',
+        'batch_size': 64
+    },
+    {
+        'name': 'Kfold-Auto_ROI-Ensemble',
+        'dataset': full,
+        'epochs': 15,
+        'train': False,
+        'type': 'kfold-joint-unet-ensemble',
+        'batch_size': 64,
+        'cm_cc_path': './save:KFold:kfold-Auto_ROI[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:kfold-Auto_ROI[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:kfold-Auto_ROI[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:kfold-Auto_ROI[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
+    },
+    {
+        'name': 'KFOLD-joint-unet[cm_cc]',
+        'dataset': cm_cc,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet',
+        'batch_size': 32,
+        'unet_path': './save:manual:unet[cm_cc]/best_val/dice/whole.pth',
+        'bilinear': True
+    },
+    {
+        'name': 'KFOLD-joint-unet[cm_mlo]',
+        'dataset': cm_mlo,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet',
+        'batch_size': 32,
+        'unet_path': './save:manual:unet[cm_mlo]_500/best_val/dice/whole.pth',
+        'bilinear': True
+    },
+    {
+        'name': 'KFOLD-joint-unet[dm_cc]',
+        'dataset': dm_cc,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet',
+        'batch_size': 32,
+        'unet_path': './save:manual:unet[dm_cc]_500/best_val/dice/whole.pth',
+        'bilinear': True
+    },
+    {
+        'name': 'KFOLD-joint-unet[dm_mlo]',
+        'dataset': dm_mlo,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet',
+        'batch_size': 32,
+        'unet_path': './save:manual:unet[dm_mlo]_500/best_val/dice/whole.pth',
+        'bilinear': True
+    },
+    {
+        'name': 'KFOLD-joint-unet-ensemble',
+        'dataset': full,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet-ensemble',
+        'batch_size': 32,
+        'cm_cc_path': './save:KFold:KFOLD-joint-unet[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:KFOLD-joint-unet[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:KFOLD-joint-unet[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:KFOLD-joint-unet[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
+    },
+{
+        'name': 'KFOLD-joint-unet-pre-segment[cm_cc]',
+        'dataset': cm_cc_pre_seg,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet-pre-segment',
+        'batch_size': 32,
+        'bilinear': True
+    },
+{
+        'name': 'KFOLD-joint-unet-pre-segment[cm_mlo]',
+        'dataset': cm_mlo_pre_seg,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet-pre-segment',
+        'batch_size': 32,
+        'bilinear': True
+    },
+{
+        'name': 'KFOLD-joint-unet-pre-segment[dm_cc]',
+        'dataset': dm_cc_pre_seg,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet-pre-segment',
+        'batch_size': 32,
+        'bilinear': True
+    },
+{
+        'name': 'KFOLD-joint-unet-pre-segment[dm_mlo]',
+        'dataset': dm_mlo_pre_seg,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-unet-pre-segment',
+        'batch_size': 32,
+        'bilinear': True
+    },
+    {
+        'name': 'KFOLD-joint-pre-segment-ensemble',
+        'dataset': full_pre_segment,
+        'epochs': 20,
+        'train': False,
+        'type': 'kfold-joint-pre-segment-ensemble',
+        'batch_size': 32,
+        'cm_cc_path': './save:KFold:KFOLD-joint-unet-pre-segment[cm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'cm_mlo_path': './save:KFold:KFOLD-joint-unet-pre-segment[cm_mlo]/fold_4/best_val/accuracy/whole.pth',
+        'dm_cc_path': './save:KFold:KFOLD-joint-unet-pre-segment[dm_cc]/fold_4/best_val/accuracy/whole.pth',
+        'dm_mlo_path': './save:KFold:KFOLD-joint-unet-pre-segment[dm_mlo]/fold_4/best_val/accuracy/whole.pth'
     }
 )

@@ -16,6 +16,7 @@ from packages.models.JointPreSegmentEnsemble import JointPreSegmentEnsemble
 from packages.parameters.Device import device
 from packages.parameters.Splits import splits
 from packages.runs.SimpleRun import SimpleRun
+from packages.runs.KFoldCrossValidation import KFoldSimpleRun
 
 torch.random.manual_seed(42)
 
@@ -39,7 +40,27 @@ for split in splits:
 
     loss_fn = torch.nn.CrossEntropyLoss()
 
-    if run_type == 'joint-unet':
+    if run_type == 'kfold-simple-run':
+        model = JointModel(num_labels=2)
+
+        optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+        runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+        runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+                     verbose=False, batch_size=batch_size, epochs=epochs)
+
+
+    if run_type == 'kfold-joint-unet':
+        bilinear = split.get('bilinear', False)
+        unet_path = split['unet_path']
+        unet_model = UNet(3, 2, bilinear).to(device)
+        unet_model.load_all(unet_path)
+        model = JointUNet(unet_model, 2)
+        optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+        runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+        runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+                     verbose=False, batch_size=batch_size, epochs=epochs)
+
+    if run_type  == 'joint-unet':
         bilinear = split.get('bilinear', False)
         unet_path = split['unet_path']
         unet_model = UNet(3, 2, bilinear).to(device)
@@ -50,6 +71,7 @@ for split in splits:
         runner.train(device, loss_fn, optimizer, f'./save:manual:{name}',
                      verbose=False, batch_size=batch_size, epochs=epochs)
         runner.evaluate(device, loss_fn, f'save:manual:{name}')
+
     if run_type == 'joint-unet-pre-segment':
         model = JointPreSegment(2)
         optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
@@ -57,6 +79,15 @@ for split in splits:
         runner.train(device, loss_fn, optimizer, f'./save:manual:{name}',
                      verbose=False, batch_size=batch_size, epochs=epochs)
         runner.evaluate(device, loss_fn, f'save:manual:{name}')
+
+    if run_type == 'kfold-joint-unet-pre-segment':
+        model = JointPreSegment(2)
+        optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+        runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+        runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+                     verbose=False, batch_size=batch_size, epochs=epochs)
+
+
     if run_type == 'joint-unet-ensemble':
         bilinear = split.get('bilinear', False)
         cm_cc_path = split['cm_cc_path']
@@ -91,6 +122,78 @@ for split in splits:
         runner.train(device, loss_fn, optimizer, f'./save:manual:{name}',
                      verbose=False, batch_size=batch_size, epochs=epochs)
         runner.evaluate(device, loss_fn, f'save:manual:{name}')
+
+    # if run_type == 'kfold-joint-unet-ensemble':
+    #     bilinear = split.get('bilinear', False)
+    #     cm_cc_path = split['cm_cc_path']
+    #     cm_mlo_path = split['cm_mlo_path']
+    #     dm_cc_path = split['dm_cc_path']
+    #     dm_mlo_path = split['dm_mlo_path']
+    #
+    #     print('Creating Model...')
+    #     print('1. Loading Backbones...')
+    #     print('\r[1/4] CM CC', end='')
+    #     # cm_cc = JointUNet()
+    #     cm_cc = JointModel()
+    #     cm_cc.load_all(cm_cc_path)
+    #     print('\r[2/4] CM MLO', end='')
+    #     # cm_mlo = JointUNet()
+    #     cm_mlo = JointModel()
+    #     cm_mlo.load_all(cm_mlo_path)
+    #     print('\r[3/4] DM CC', end='')
+    #     # dm_cc = JointUNet()
+    #     dm_cc = JointModel()
+    #     dm_cc.load_all(dm_cc_path)
+    #     print('\r[4/4] DM MLO')
+    #     # dm_mlo = JointUNet()
+    #     dm_mlo = JointModel()
+    #     dm_mlo.load_all(dm_mlo_path)
+    #
+    #     print('2. Creating Ensemble Model...')
+    #     model = JointUNetEnsemble(cm_cc, cm_mlo, dm_cc, dm_mlo, 2)
+    #     print('Model Created')
+    #     optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+    #     runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+    #     runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+    #                  verbose=False, batch_size=batch_size, epochs=epochs)
+    #     # runner.evaluate(device, loss_fn, f'save:manual:{name}')
+
+    if run_type == 'kfold-joint-unet-ensemble':
+        bilinear = split.get('bilinear', False)
+        cm_cc_path = split['cm_cc_path']
+        cm_mlo_path = split['cm_mlo_path']
+        dm_cc_path = split['dm_cc_path']
+        dm_mlo_path = split['dm_mlo_path']
+
+        print('Creating Model...')
+        print('1. Loading Backbones...')
+        print('\r[1/4] CM CC', end='')
+        # cm_cc = JointUNet()
+        cm_cc = JointModel()
+        # checkpoint = torch.load(cm_cc_path)
+        # print(checkpoint.keys())
+        cm_cc.load_all(cm_cc_path)
+        print('\r[2/4] CM MLO', end='')
+        # cm_mlo = JointUNet()
+        cm_mlo = JointModel()
+        cm_mlo.load_all(cm_mlo_path)
+        print('\r[3/4] DM CC', end='')
+        # dm_cc = JointUNet()
+        dm_cc = JointModel()
+        dm_cc.load_all(dm_cc_path)
+        print('\r[4/4] DM MLO')
+        # dm_mlo = JointUNet()
+        dm_mlo = JointModel()
+        dm_mlo.load_all(dm_mlo_path)
+
+        print('2. Creating Ensemble Model...')
+        model = JointUNetEnsemble(cm_cc, cm_mlo, dm_cc, dm_mlo, 2)
+        print('Model Created')
+        optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+        runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+        runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+                     verbose=False, batch_size=batch_size, epochs=epochs)
+
     if run_type == 'joint-pre-segment-ensemble':
         cm_cc_path = split['cm_cc_path']
         cm_mlo_path = split['cm_mlo_path']
@@ -120,6 +223,36 @@ for split in splits:
         runner.train(device, loss_fn, optimizer, f'./save:manual:{name}',
                      verbose=False, batch_size=batch_size, epochs=epochs)
         runner.evaluate(device, loss_fn, f'save:manual:{name}')
+
+    if run_type == 'kfold-joint-pre-segment-ensemble':
+        cm_cc_path = split['cm_cc_path']
+        cm_mlo_path = split['cm_mlo_path']
+        dm_cc_path = split['dm_cc_path']
+        dm_mlo_path = split['dm_mlo_path']
+
+        print('Creating Model...')
+        print('1. Loading Backbones...')
+        print('\r[1/4] CM CC', end='')
+        cm_cc = JointPreSegment()
+        cm_cc.load_all(cm_cc_path)
+        print('\r[2/4] CM MLO', end='')
+        cm_mlo = JointPreSegment()
+        cm_mlo.load_all(cm_mlo_path)
+        print('\r[3/4] DM CC', end='')
+        dm_cc = JointPreSegment()
+        dm_cc.load_all(dm_cc_path)
+        print('\r[4/4] DM MLO')
+        dm_mlo = JointPreSegment()
+        dm_mlo.load_all(dm_mlo_path)
+
+        print('2. Creating Ensemble Model...')
+        model = JointPreSegmentEnsemble(cm_cc, cm_mlo, dm_cc, dm_mlo, 2)
+        print('Model Created')
+        optimizer = torch.optim.Adam(model.parameters(), weight_decay=0.001)
+        runner = KFoldSimpleRun(datasets['train'], model, k_folds=5)
+        runner.train(device, loss_fn, optimizer, f'./save:KFold:{name}',
+                     verbose=False, batch_size=batch_size, epochs=epochs)
+
     if run_type == 'swin-unet':
         model_path = split['model_path']
         model = SwinUNet()

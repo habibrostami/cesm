@@ -3,12 +3,12 @@ import random
 import shutil
 
 # Define the paths to the DM and CM folders
-dm_folder = '/mnt/2T/BreastCancerAll/.dataset/UNET_highlighted_images/DM'  # Replace with the actual path to your DM folder
-cm_folder = '/mnt/2T/BreastCancerAll/.dataset/UNET_highlighted_images/all'  # Replace with the actual path to your CM folder
+dm_folder = '/mnt/2T/BreastCancerAll/.dataset/org/all'  # Replace with the actual path to your DM folder
+cm_folder = '/mnt/2T/BreastCancerAll/.dataset/org/CM'  # Replace with the actual path to your CM folder
 
 # Define the paths to the target folders
-dm_target_folder = '/mnt/2T/BreastCancerAll/Results/data-images/Unet_AOL_split/DM'
-cm_target_folder = '/mnt/2T/BreastCancerAll/Results/data-images/Unet_AOL_split/all'
+dm_target_folder = '/mnt/2T/BreastCancerAll/.dataset/NewPartition/all'
+cm_target_folder = '/mnt/2T/BreastCancerAll/.dataset/NewPartition/CM'
 
 # Define the percentages for test, validation, and train
 test_percentage = 0.15
@@ -55,7 +55,7 @@ def partition_images(source_folder, target_folder):
                 )
 
 # Partition the DM folder
-# partition_images(dm_folder, dm_target_folder)
+partition_images(dm_folder, dm_target_folder)
 
 # Partition the CM folder
-partition_images(cm_folder, cm_target_folder)
+# partition_images(cm_folder, cm_target_folder)

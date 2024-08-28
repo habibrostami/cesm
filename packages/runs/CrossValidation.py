@@ -3,7 +3,7 @@ import os
 
 import torch
 from torch.utils.data import random_split, DataLoader, ConcatDataset
-from .utils.Accuracy import Accuracy
+from ..utils.Accuracy import Accuracy
 from ..utils.Loss import Loss
 from ..utils.TrackBest import TrackBest
 from ..utils.TimeEstimator import TimeEstimator

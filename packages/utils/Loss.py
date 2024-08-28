@@ -25,3 +25,21 @@ class Loss:
         if len(self.history) == 0:
             return float('inf')
         return min(self.history)
+
+
+###
+# class Loss:
+#     def __init__(self):
+#         self.total_loss = 0
+#         self.count = 0
+#
+#     def update(self, loss_value, n=1):
+#         self.total_loss += loss_value * n
+#         self.count += n
+#
+#     def reset(self):
+#         self.total_loss = 0
+#         self.count = 0
+#
+#     def get_value(self):
+#         return self.total_loss / self.count if self.count != 0 else 0
