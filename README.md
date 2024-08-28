@@ -1,7 +1,14 @@
+## How to Run the Code
 
-### Directory Structure
+1. **Install Dependencies:**
+   - Install the required packages using the `cesm_requirements.yaml` file.
 
-Before running the data split script, ensure that your directory structure is as follows:
+2. **Download the Dataset:**
+   - Obtain the dataset from [The Cancer Imaging Archive](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=109379611).
+
+3. **Organize the Dataset:**
+   - Place the CM (Contrast Mammography) and DM (Digital Mammography) images into their respective folders within the `data` directory.
+   - Each image type should have `0` and `1` subfolders representing their labels.
 
 ```
 project_root/
@@ -25,23 +32,16 @@ project_root/
 --- main.py
 --- requirements.txt
 ```
+4. **Set Up Data Splits:**
+   - Open the `data_split.py` script and verify the `base_path` variable is set to the correct path of your `data` folder.
+   - Run `data_split.py` to create the `train`, `validation`, and `test` folders, along with their corresponding `.csv` files (`train.csv`, `validation.csv`, `test.csv`).
 
-### Running the Data Split Script
+5. **Configure the Model and Dataset:**
+   - Open `packages/parameters/split.py` and set the desired model and dataset to `True` (e.g., `cm_cc` on U-Net).
+   - Supported models are defined in `main.py`. Any model set to `True` in `split.py` will be run when executing `main.py`.
 
-1. **Configure the Base Path**:
-   - Ensure that the `base_path` and `save_path` in the `data_split.py` script are correctly set to the directory where your data resides.
-     By default, both are set to `./data`, meaning the script expects the data to be in a folder named `data` in the project root.
-
-2. **Execute the Script**:
-   - Run the script to organize your data:
-     ```
-     python data_split.py
-     ```
-   - This script will:
-     - Verify that all required images are available (i.e., each CM image has corresponding MLO and DM images).
-     - Split the dataset into training, validation, and test sets with a 70-15-15% ratio.
-     - Copy the images into the appropriate directories (`train`, `validation`, `test`).
-     - Generate three CSV files (`train_data.csv`, `validation_data.csv`, `test_data.csv`) listing the paths to the images and their corresponding labels.
+6. **Run the Model:**
+   - Execute `main.py` to start the training process.
 
 ### Model Configuration
 
@@ -60,16 +60,19 @@ project_root/
      ```
    - **Important**: To run a model, set the `'train'` key to `True`. The `'type'` field corresponds to the model type defined in `main.py` under `run_type`.
 
-### Running the Model
-
-1. **Run the Main Script**:
-   - Finally, run the `main.py` script to start the training process:
-     ```
-     python main.py
-     ```
 
 ## Additional Information
 
 - **Model Types**: Different `run_type` values are available in `main.py`, corresponding to various model architectures and training methods (e.g., `kfold-simple-run`, `joint-unet`, `u-net`, etc.). Adjust the `type` field in `split.py` according to the model you want to train.
 - **Results**: Training results, including model checkpoints, will be saved in the specified directories. Check the `save:` path for outputs.
+
+## Citation
+
+If you use this code or dataset in your research, please cite the following sources:
+
+- Khaled R., Helal M., Alfarghaly O., Mokhtar O., Elkorany A., El Kassas H., Fahmy A. Categorized Digital Database for Low Energy and Subtracted Contrast Enhanced Spectral Mammography Images [Dataset]. (2021) The Cancer Imaging Archive. DOI: [10.7937/29kw-ae92](https://doi.org/10.7937/29kw-ae92)
+
+- Khaled, R., Helal, M., Alfarghaly, O., Mokhtar, O., Elkorany, A., El Kassas, H., & Fahmy, A. Categorized Contrast Enhanced Mammography Dataset for Diagnostic and Artificial Intelligence Research. (2022) Scientific Data, Volume 9, Issue 1. DOI: [10.1038/s41597-022-01238-0](https://doi.org/10.1038/s41597-022-01238-0)
+
+- Clark K, Vendt B, Smith K, Freymann J, Kirby J, Koppel P, Moore S, Phillips S, Maffitt D, Pringle M, Tarbox L, Prior F. The Cancer Imaging Archive (TCIA): Maintaining and Operating a Public Information Repository. Journal of Digital Imaging, Volume 26, Number 6, December 2013, pp 1045-1057. DOI: [10.1007/s10278-013-9622-7](https://doi.org/10.1007/s10278-013-9622-7)
 
