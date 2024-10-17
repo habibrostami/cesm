@@ -1,22 +1,22 @@
 <h1 align="center">
-Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images
+[Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images](https://doi.org/10.1016/j.compbiomed.2024.109266)
 </h1>
 <h4 align="center">
-  <a href="https://www.linkedin.com/in/narjes-bouzarjomehri-35bb0a151/">Narjes Bouzarjomehri<sup>*</sup></a> &nbsp; 
-  <a href="https://mbrz97.github.io/">Mohammad Barzegar<sup>*</sup></a> &nbsp;
+  <a href="https://www.linkedin.com/in/narjes-bouzarjomehri-35bb0a151/">Narjes Bouzarjomehri</a> &nbsp; 
+  <a href="https://mbrz97.github.io/">Mohammad Barzegar</a> &nbsp;
   <a href="https://scholar.google.com/citations?user=s6FF_qsAAAAJ">Habib Rostami</a>
   </h4>
 
   <h4 align="center">
   <a href="https://scholar.google.com/citations?user=NeD822UAAAAJ">Ahmad Keshavarz</a> &nbsp;
   <a href="https://www.researchgate.net/profile/Ahmad-Asghari-4">Ahmad Navid Asghari</a> &nbsp;
-  <a href="https://scholar.google.com/citations?user=w8E99wcAAAAJ">Saeed Talatian Azad<sup>&dagger;</sup></a>
+  <a href="https://scholar.google.com/citations?user=w8E99wcAAAAJ">Saeed Talatian Azad</a>
 </h4>
 
 <br>
 
 This is the repository for the official implementation of [Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images
-](https://doi.org/10.1016/j.compbiomed.2024.109266)
+](https://doi.org/10.1016/j.compbiomed.2024.109266) published in _Computers in Biology and Medicine (Volume 183, December 2024, 109266)_ 
 
 
 # How to Run the Code
