@@ -1,5 +1,5 @@
 <h1 align="center">
-<a href="https://doi.org/10.1016/j.compbiomed.2024.109266">Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images</a>
+<a href="https://doi.org/10.1016/j.compbiomed.2024.109266">Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and Contrast Enhanced Spectral Mammography Images</a>
 </h1>
 <h4 align="center">
   <a href="https://www.linkedin.com/in/narjes-bouzarjomehri-35bb0a151/">Narjes Bouzarjomehri</a> &nbsp; 
@@ -19,7 +19,7 @@ This is the repository for the official implementation of [Multi-modal classific
 ](https://doi.org/10.1016/j.compbiomed.2024.109266) published in _Computers in Biology and Medicine (Volume 183, December 2024, 109266)_ 
 
 
-# How to Run the Code
+# ⚙️ How to Run the Code
 
 ### 1. Install Dependencies:
    - Install the required packages using the `cesm_requirements.yaml` file.
@@ -65,7 +65,7 @@ project_root/
 ### 6. Run the Model
    - Execute `main.py` to start the training process.
 
-## Model Configuration
+## 🔧 Model Configuration
    - To configure the model in `splits.py`, open the `splits.py` file to configure the models you wish to run. Here s an example configuration:
      ```
      {
@@ -81,12 +81,12 @@ project_root/
    - **Important**: To run a model, set the `'train'` key to `True`. The `'type'` field corresponds to the model type defined in `main.py` under `run_type`.
 
 
-## Additional Information
+## 📖 Additional Information
 
 - **Model Types**: Different `run_type` values are available in `main.py`, corresponding to various model architectures and training methods (e.g., `kfold-simple-run`, `joint-unet`, `u-net`, etc.). Adjust the `type` field in `splits.py` according to the model you want to train.
 - **Results**: Training results, including model checkpoints, will be saved in the specified directories. Check the `save:` path for outputs.
 
-## Datasets Citation
+## 🍃 Datasets Citation
 We would like to express our gratitude to Khaled R. et al. and the TCIA repository for publishing and making the CESM dataset publicly available, which served as the foundation for our work. We also extend our thanks to Moreira et al. for providing the INbreast dataset, which we used as an external test set.
 
 - Khaled R., Helal M., Alfarghaly O., Mokhtar O., Elkorany A., El Kassas H., Fahmy A. Categorized Digital Database for Low Energy and Subtracted Contrast Enhanced Spectral Mammography Images [Dataset]. (2021) The Cancer Imaging Archive. DOI: [10.7937/29kw-ae92](https://doi.org/10.7937/29kw-ae92)
