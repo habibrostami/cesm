@@ -4,7 +4,7 @@ Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and C
 <h4 align="center">
   <a href="https://www.linkedin.com/in/narjes-bouzarjomehri-35bb0a151/">Narjes Bouzarjomehri</a>, &nbsp; 
   <a href="https://mbrz97.github.io/">Mohammad Barzegar</a>, &nbsp;
-  <a href="https://scholar.google.com/citations?user=s6FF_qsAAAAJ">Habib Rostami</a>
+  <a href="https://scholar.google.com/citations?user=s6FF_qsAAAAJ">Habib Rostami</a>,
   </h4>
 
   <h4 align="center">
