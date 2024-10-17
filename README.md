@@ -1,5 +1,5 @@
 <h1 align="center">
-<a href="https://doi.org/10.1016/j.compbiomed.2024.109266">Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and Contrast Enhanced Spectral Mammography Images</a>
+Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and Contrast Enhanced Spectral Mammography Images
 </h1>
 <h4 align="center">
   <a href="https://www.linkedin.com/in/narjes-bouzarjomehri-35bb0a151/">Narjes Bouzarjomehri</a> &nbsp; 
