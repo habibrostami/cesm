@@ -30,7 +30,7 @@ year = {2024},
 issn = {0010-4825},
 doi = {https://doi.org/10.1016/j.compbiomed.2024.109266},
 url = {https://www.sciencedirect.com/science/article/pii/S0010482524013519},
-author = {Narjes Bouzarjomehri and Mohammad Barzegar and Habib Rostami and Ahmad Keshavarz and Ahmad Navid Asghari and Saeed Talatian Azad},
+author = {Narjes Bouzarjomehri and Mohammad Barzegar and Habib Rostami and Ahmad Keshavarz and Ahmad Navid Asghari and Saeed Talatian Azad}
 }
 ```
 
