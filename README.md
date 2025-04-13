@@ -18,7 +18,7 @@ Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and C
 This is the repository for the official implementation of [Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images
 ](https://doi.org/10.1016/j.compbiomed.2024.109266) published in _Computers in Biology and Medicine (Volume 183, December 2024, 109266)_ 
 
-## Citation
+# 🔖 Citation
 If you find this code helpful in your research, please cite the following paper:
 ```
 @article{BOUZARJOMEHRI2024109266,
