@@ -18,6 +18,22 @@ Multi-Modal Classification of Breast Cancer Lesions in Digital Mammography and C
 This is the repository for the official implementation of [Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images
 ](https://doi.org/10.1016/j.compbiomed.2024.109266) published in _Computers in Biology and Medicine (Volume 183, December 2024, 109266)_ 
 
+## Citation
+If you find this code helpful in your research, please cite the following paper:
+```
+@article{BOUZARJOMEHRI2024109266,
+title = {Multi-modal classification of breast cancer lesions in Digital Mammography and contrast enhanced spectral mammography images},
+journal = {Computers in Biology and Medicine},
+volume = {183},
+pages = {109266},
+year = {2024},
+issn = {0010-4825},
+doi = {https://doi.org/10.1016/j.compbiomed.2024.109266},
+url = {https://www.sciencedirect.com/science/article/pii/S0010482524013519},
+author = {Narjes Bouzarjomehri and Mohammad Barzegar and Habib Rostami and Ahmad Keshavarz and Ahmad Navid Asghari and Saeed Talatian Azad},
+}
+```
+
 
 # ⚙️ How to Run the Code
 
@@ -86,7 +102,7 @@ project_root/
 - **Model Types**: Different `run_type` values are available in `main.py`, corresponding to various model architectures and training methods (e.g., `kfold-simple-run`, `joint-unet`, `u-net`, etc.). Adjust the `type` field in `splits.py` according to the model you want to train.
 - **Results**: Training results, including model checkpoints, will be saved in the specified directories. Check the `save:` path for outputs.
 
-## 🍃 Datasets Citation
+## 🍃 Datasets
 We would like to express our gratitude to Khaled R. et al. and the TCIA repository for publishing and making the CESM dataset publicly available, which served as the foundation for our work. We also extend our thanks to Moreira et al. for providing the INbreast dataset, which we used as an external test set.
 
 - Khaled R., Helal M., Alfarghaly O., Mokhtar O., Elkorany A., El Kassas H., Fahmy A. Categorized Digital Database for Low Energy and Subtracted Contrast Enhanced Spectral Mammography Images [Dataset]. (2021) The Cancer Imaging Archive. DOI: [10.7937/29kw-ae92](https://doi.org/10.7937/29kw-ae92)
