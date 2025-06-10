@@ -112,4 +112,4 @@ We would like to express our gratitude to Khaled R. et al. and the TCIA reposito
 - Clark K, Vendt B, Smith K, Freymann J, Kirby J, Koppel P, Moore S, Phillips S, Maffitt D, Pringle M, Tarbox L, Prior F. The Cancer Imaging Archive (TCIA): Maintaining and Operating a Public Information Repository. Journal of Digital Imaging, Volume 26, Number 6, December 2013, pp 1045-1057. DOI: [10.1007/s10278-013-9622-7](https://doi.org/10.1007/s10278-013-9622-7)
 
 - Inês C. Moreira, Igor Amaral, Inês Domingues, António Cardoso, Maria João Cardoso, Jaime S. Cardoso, INbreast: Toward a Full-field Digital Mammographic Database, Academic Radiology, Volume 19, Issue 2, 2012, Pages 236-248, ISSN 1076-6332, DOI: [10.1016/j.acra.2011.09.014](https://doi.org/10.1016/j.acra.2011.09.014). [Link to Article](https://www.sciencedirect.com/science/article/pii/S107663321100451X)
-- .
+- 
